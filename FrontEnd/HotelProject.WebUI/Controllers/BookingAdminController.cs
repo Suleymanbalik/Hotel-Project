@@ -32,7 +32,7 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
-        // this part doesnt work we will fix it after
+        // this part change the status of Bookings to Approved.
         public async Task<IActionResult> ApprovedBooking(int id)
         {
             if (!ModelState.IsValid)
@@ -40,16 +40,29 @@ namespace HotelProject.WebUI.Controllers
                 return View();
             }
 
+            var client = _httpClientFactory.CreateClient();          
+            var responseMessage = await client.GetAsync($"http://localhost:5171/api/Booking/UpdateBookingStatusToApproved?id={id}");
 
+            // Mehmet Codes solution for Error 
+            //var responseMessage = await client.PutAsync($"http://localhost:5171/api/Booking/UpdateBookingStatusToApproved/{id}", null);
+            if (responseMessage.IsSuccessStatusCode)
+            {
 
-            //approvedBookingDto.BookingStatus = "Approved!";
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> CancelBooking(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
 
             var client = _httpClientFactory.CreateClient();
-            //var jsonData = JsonConvert.SerializeObject(approvedBookingDto);
-            //StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            //var responseMessage = await client.PutAsync("http://localhost:5171/api/Booking/UpdateBookingStatusToApproved", stringContent);
+            var responseMessage = await client.GetAsync($"http://localhost:5171/api/Booking/UpdateBookingStatusToCancel?id={id}");
 
-            var responseMessage = await client.PutAsync($"http://localhost:5171/api/Booking/UpdateBookingStatusToApproved/{id}", null);
             if (responseMessage.IsSuccessStatusCode)
             {
 

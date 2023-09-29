@@ -52,13 +52,23 @@ namespace HotelProject.WebApi.Controllers
             return Ok(getBooking);
         }
 
-        // this part does not work we will fix it after
-        [HttpPut("UpdateBookingStatusToApproved/{id}")]
-        public IActionResult UpdateBookingStatusToApproved(int id)
+        // this part for approve bookings (just changing teh status to approved!)
+        //[HttpPut("UpdateBookingStatusToApproved/{id}")]
+        [HttpGet("UpdateBookingStatusToApproved")]
+        public IActionResult UpdateBookingStatusToApproved( int id /*int id*/)
         {
-            var approvedBookingDto = _bookingService.TGetByID(id);
-            approvedBookingDto.BookingStatus = "Approved!";
-            _bookingService.TBookingStatusChangeApproved(approvedBookingDto);
+            //var approvedBookingDto = _bookingService.TGetByID(id);
+            //approvedBookingDto.BookingStatus = "Approved!";
+            _bookingService.TBookingStatusChangeApproved(id);
+            return Ok();
+        }
+
+       
+        [HttpGet("UpdateBookingStatusToCancel")]
+        public IActionResult UpdateBookingStatusToCancel(int id)
+        {
+            
+            _bookingService.TBookingStatusChangeApproved(id);
             return Ok();
         }
     }
