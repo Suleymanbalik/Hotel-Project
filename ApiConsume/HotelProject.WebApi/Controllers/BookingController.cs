@@ -67,8 +67,7 @@ namespace HotelProject.WebApi.Controllers
         [HttpGet("UpdateBookingStatusToCancel")]
         public IActionResult UpdateBookingStatusToCancel(int id)
         {
-            
-            _bookingService.TBookingStatusChangeApproved(id);
+            _bookingService.TBookingStatusChangeCancel(id);
             return Ok();
         }
     }

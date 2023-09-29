@@ -59,10 +59,8 @@ namespace HotelProject.WebUI.Controllers
             {
                 return View();
             }
-
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"http://localhost:5171/api/Booking/UpdateBookingStatusToCancel?id={id}");
-
             if (responseMessage.IsSuccessStatusCode)
             {
 
