@@ -1,0 +1,59 @@
+﻿@model List<ResultBookingDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+
+@*<h2>Reservations</h2>*@
+<div class="col-md-6 col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h4>Reservations</h4>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Customer</th>
+                            <th>CheckIn</th>
+                            <th>CheckOut</th>
+                            <th>Status</th>
+                            <th>Edit</th>
+                            <th>Delay</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                                {
+                                    count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.BookingFullName</td>
+                                <td>@(((DateTime)item.BookingCheckIn).ToString("dd/MMM/yyyy"))</td>
+                                <td>@(((DateTime)item.BookingCheckOut).ToString("dd/MMM/yyyy"))</td>                                
+                                <td>
+                                    <span class="badge badge-primary px-2">@item.BookingStatus</span>
+                                </td>
+                                <td>
+                                    <a href="/BookingAdmin/ApprovedBooking?id=@item.BookingID"><span class="text-green"><i class="fa-solid fa-square-check"></i></span></a>
+                                    <a href="/BookingAdmin/DeleteService/@item.BookingID" style="margin-left:7px"><span class="text-danger"><i class="fa-solid fa-trash"></i></span></a>
+                                    <a href="/BookingAdmin/UpdateServiceData/@item.BookingID" style="margin-left:7px"><span class="text-succes"><i class="fa-solid fa-pen-to-square"></i></span></a>
+                                </td>
+                                <td> <a href="/BookingAdmin/ApproveService/@item.BookingID"><span class="text-gray"><i class="fa-solid fa-circle-pause"></i></span></a></td>
+                                <td><a href="/BookingAdmin/ApproveService/@item.BookingID"><span class="text-warning"><i class="fa-solid fa-circle-info"></i></span></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

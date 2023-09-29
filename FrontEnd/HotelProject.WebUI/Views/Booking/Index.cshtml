@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head Start -->
+@await Component.InvokeAsync("_HeadPartial")
+
+<!-- Head End -->
+<body>
+
+    <div class="container-xxl bg-white p-0">
+
+        <!-- Spinner Start -->
+        @await Component.InvokeAsync("_SpinnerPartial")
+        <!-- Spinner End -->
+        <!-- Header Start -->
+        @await Component.InvokeAsync("_NavBarPartial")
+        <!-- Header End -->
+        <!-- Booking Cover start I have gotten this part from Booking.Index-->
+        @await Component.InvokeAsync("_BookingCoverPartial")
+        <!-- Booking Cover End -->
+        <!-- Booking Start -->
+        @await Component.InvokeAsync("_ReservationPartial")
+        <!-- Booking End -->
+        <!-- Add Booking Start-->
+        @await Html.PartialAsync("/Views/Booking/AddBookingPartial.cshtml")
+        <!-- Add Booking End-->
+        <!-- Newsletter Start -->
+        @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml")
+        <!-- Newsletter End-->
+        <!-- Footer Start -->
+        @await Component.InvokeAsync("_FooterPartial")
+        <!-- Footer End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    @await Component.InvokeAsync("_ScriptsPartial")
+
+</body>
+
+</html>
