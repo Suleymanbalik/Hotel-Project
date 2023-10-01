@@ -70,5 +70,12 @@ namespace HotelProject.WebApi.Controllers
             _bookingService.TBookingStatusChangeCancel(id);
             return Ok();
         }
+
+        [HttpGet("UpdateBookingStatusToDelay")]
+        public IActionResult UpdateBookingStatusToDelay(int id)
+        {
+            _bookingService.TBookingStatusChangeDelay(id);
+            return Ok();
+        }
     }
 }

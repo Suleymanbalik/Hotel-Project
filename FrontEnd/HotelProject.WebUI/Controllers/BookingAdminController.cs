@@ -69,5 +69,21 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
+        public async Task<IActionResult> DelayBooking(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5171/api/Booking/UpdateBookingStatusToDelay?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }

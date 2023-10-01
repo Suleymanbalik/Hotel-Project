@@ -31,5 +31,13 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             values.BookingStatus = "Cancelled!";
             context.SaveChanges();
         }
+
+        public void BookingStatusChangeDelay(int id)
+        {
+            var context = new Context();
+            var values = context.Bookings.Find(id);
+            values.BookingStatus = "Delaying!!";
+            context.SaveChanges();
+        }
     }
 }
