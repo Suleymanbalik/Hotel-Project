@@ -1,6 +1,9 @@
-﻿@model List<ExchangeViewModel.Exchange_Rates>
+﻿@model List<BookingApiLocationSearchViewModel>
+
+
 @{
     Layout = null;
+    
 }
 
 <!doctype html>
@@ -14,23 +17,32 @@
 <body>
     <div class="container">
         <div class="row">
+
+            @using(Html.BeginForm("Index","SearchLocationID", FormMethod.Post))
+            {
+                <label>Enter City Name</label>
+                <input type="text" class="form-control" name="cityName"/>
+                <button class="btn btn-outline-dark mt-2">Find id</button>
+            }
+
             <table class="table table-hover table-responsive">
                 <thead>
                     <tr>
-                        <th>Currencu Code</th>
-                        <th>Unit Price</th>
+                        
+                        <th>Location</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.currency</td>
-                            <td>@item.exchange_rate_buy</td>
+                            <td>@item.dest_id</td>                         
                         </tr>
                     }
                 </tbody>
             </table>
+
+            <a href="/BookingByCity/Index" class="btn btn-dark">New Reservation</a>
         </div>
     </div>
 
