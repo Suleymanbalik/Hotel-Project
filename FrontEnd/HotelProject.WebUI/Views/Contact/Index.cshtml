@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+@*Contact Index Page*@
+
 <!-- Head Start -->
 @await Component.InvokeAsync("_HeadPartial")
 
@@ -20,15 +22,15 @@
         <!-- Header Start -->
         @await Component.InvokeAsync("_NavBarPartial")
         <!-- Header End -->
-        <!-- Booking Cover start I have gotten this part from Booking.Index-->
-        @await Component.InvokeAsync("_BookingCoverPartial")
-        <!-- Booking Cover End -->
+        <!-- Contact Cover start I have gotten this part from contact.html-->
+        @await Component.InvokeAsync("_ContactCoverPartial")
+        <!-- Contact Cover End -->
         <!-- Booking Start -->
         @*@await Component.InvokeAsync("_ReservationPartial")*@
         <!-- Booking End -->
-        <!-- Add Booking Start-->
-        @await Html.PartialAsync("/Views/Booking/AddBookingPartial.cshtml")
-        <!-- Add Booking End-->
+        <!-- Send Message Start-->
+        @await Html.PartialAsync("/Views/Contact/SendMessagePartial.cshtml")
+        <!-- Send Message End-->
         <!-- Newsletter Start -->
         @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml")
         <!-- Newsletter End-->
