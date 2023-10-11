@@ -1,0 +1,44 @@
+﻿@model List<ResultRoomDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    
+    int count = 0;
+}
+
+@*Admin Room Index*@
+<h1>Index</h1>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Room No</th>
+                    <th>Title</th>
+                    <th>Edit</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tbody>
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.RoomNumber</td>
+                        <td>@item.RoomTitle</td>
+                        <td>
+                            <a href="/AdminRoom/DeleteRoom/@item.RoomID"><span class="text-danger"><i class="fa-solid fa-trash"></i></span></a>
+                            <a href="/AdminRoom/UpdateRoom/@item.RoomID" style="margin-left:7px"><span class="text-succes"><i class="fa-solid fa-pen-to-square"></i></span></a>
+                        </td>
+                        <td> <a href="#"><span class="text-warning"><i class="fa-solid fa-circle-info"></i></span></a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+        <a class="btn btn-dark my-2" href="/AdminRoom/AddRoom/">Add New Room</a>
+    </div>
+
+</div>

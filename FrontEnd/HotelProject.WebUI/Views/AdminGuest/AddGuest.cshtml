@@ -1,0 +1,23 @@
+﻿@model CreateGuestDto
+@{
+    ViewData["Title"] = "AddGuest";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>AddGuest</h1>
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <label>First Name</label>
+            <input type="text" asp-for="GuestFirstName" class="form-control" />
+            <br />
+            <label>Last Name</label>
+            <input type="text" asp-for="GuestLastName" class="form-control" />
+            <br />
+            <label>City</label>
+            <input type="text" asp-for="GuestCity" class="form-control" />
+            <br />         
+        </div>
+    </div>
+    <button class="btn btn-info mt-2">Add Guest</button>
+</form>
