@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+@*Admin file Controller index*@
+<h1>Load <span class="text-info">Image</span> File</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-body">
+            <input type="file" class="form-control" name="file"/>
+            <hr />
+            <button type="submit" class="btn btn-dark mt-2">Add File</button>
+        </div>
+    </div>
+</form>
+<hr />
+<h1>Load <span class="text-green">Text</span> File</h1>
+<div class="card mt-2">
+    <div class="card-body">
+        <a class="btn btn-warning" href="/AdminFile/LoadTextFile/">Go to Page</a>
+    </div>
+</div>

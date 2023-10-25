@@ -4,9 +4,11 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelProject.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class BookingController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

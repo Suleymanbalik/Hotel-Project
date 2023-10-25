@@ -22,5 +22,6 @@ namespace HotelProject.WebUI.Dtos.RegisterDto
         [Required(ErrorMessage = "Must Add Confirm Password!")]
         [Compare("RegisterPassword",ErrorMessage ="Password does not match!")]
         public string RegisterConfirmPassword { get; set; }
+        
     }
 }

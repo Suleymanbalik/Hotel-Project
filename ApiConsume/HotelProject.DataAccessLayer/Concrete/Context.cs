@@ -25,5 +25,24 @@ namespace HotelProject.DataAccessLayer.Concrete
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Guest> Guests { get; set; }    
         public DbSet<Contact> Contacts { get; set; }    
+        public DbSet<SentMessage> SentMessages { get; set; }    
+        public DbSet<MessageCategory> MessageCategories { get; set; }
+        public DbSet<WorkLocation> WorkLocations { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+
+            //modelBuilder.Entity<Contact>().Property()
+            // one-to-many relationship between Contact and MessageCategory
+            modelBuilder.Entity<MessageCategory>()
+        .HasMany(mc => mc.Contacts)       // One MessageCategory has many Contacts
+        .WithOne(c => c.MessageCategory)  // Each Contact belongs to one MessageCategory
+        .HasForeignKey(c => c.MessageCategoryID);
+        }
     }
+
+    
 }

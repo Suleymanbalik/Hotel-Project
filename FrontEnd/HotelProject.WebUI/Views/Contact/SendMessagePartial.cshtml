@@ -32,7 +32,7 @@
             </div>
 
 
-           
+
 
             <div class="col-md-6">
                 <div class="wow fadeInUp" data-wow-delay="0.2s">
@@ -52,7 +52,18 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" name="ContactSubject" placeholder="Subject">
+                                    @*@Html.DropDownList("MessageCategoryID", (IEnumerable<SelectListItem>)ViewBag.MessageCategory, "Select a category", new { @class = "form-control" })*@
+                                    @*@Html.DropDownListFor(m => m.MessageCategoryID, 
+                                   (List<SelectListItem>)ViewBag.MessageCategory, 
+                                   "Select Category", 
+                                   new { @class = "form-control" })*@
+                                    <select asp-for="MessageCategoryID" asp-items="@ViewBag.MessageCategory" class="form-control" id="categoryid"></select>
+                                    <label for="categoryid">Select Message Category</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" name="ContactTitle" placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>

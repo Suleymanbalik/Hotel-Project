@@ -1,0 +1,43 @@
+﻿@model GetMessageDetailsByIDDto 
+@{
+    ViewData["Title"] = "InBoxMessageDetails";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>InBoxMessageDetails</h1>
+
+<div class="email-left-box">
+    <a href="/AdminContact/AddSentMessage/" class="btn btn-primary btn-block">New Message</a>
+    @await Html.PartialAsync("AdminContactMailSideBarPartial")
+    <h5 class="mt-5 m-b-10">Categories</h5>
+    @await Html.PartialAsync("AdminContactMailCategorySideBarPartial")
+</div>
+<div class="email-right-box">
+    <div role="toolbar" class="toolbar">
+        <div class="btn-group">
+            @*<button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                    More <span class="caret m-l-5"></span>
+                </button>*@
+        </div>
+    </div>
+
+
+    <div class="read-content">
+        <div class="media pt-5">
+            <img class="mr-3 rounded-circle" src="~/adminweb/images/avatar/1.jpg">
+            <div class="media-body">
+                <h5 class="m-b-3">@Model.ContactName</h5>
+                <p class="m-b-2">@(((DateTime)Model.ContactDate).ToString("dd/MMM/yyyy"))</p>
+            </div>
+        </div>
+        <hr>
+        <div class="media mb-4 mt-1">
+            <div class="media-body">
+                <h4 class="m-0 text-primary">@Model.ContactSubject</h4><small class="text-muted">From:@Model.ContactMail</small>
+            </div>
+        </div>
+        @Model.ContactMessage
+        </p>
+        <hr>
+    </div>
+</div>

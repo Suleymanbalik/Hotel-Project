@@ -1,0 +1,105 @@
+﻿@model List<ResultSentMessageDto>
+@{
+    ViewData["Title"] = "Sentbox";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Sentbox</h1>
+<div class="col-lg-12">
+    <div class="email-left-box">
+        <a href="/AdminContact/AddSentMessage/" class="btn btn-primary btn-block">New Message</a>
+        @await Html.PartialAsync("AdminContactMailSideBarPartial")
+        <h5 class="mt-5 m-b-10">Categories</h5>
+        @await Html.PartialAsync("AdminContactMailCategorySideBarPartial")
+    </div>
+    <div class="email-right-box">
+        <div role="toolbar" class="toolbar">
+            <div class="btn-group">
+                @*<button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                        More <span class="caret m-l-5"></span>
+                    </button>*@
+                @*<div class="dropdown-menu">
+                        <span class="dropdown-header">More Option :</span>  <a href="javascript: void(0);" class="dropdown-item">Mark as Unread</a>  <a href="javascript: void(0);" class="dropdown-item">Add to Tasks</a>
+                        <a href="javascript: void(0);" class="dropdown-item">Add Star</a>  <a href="javascript: void(0);" class="dropdown-item">Mute</a>
+                    </div>*@
+            </div>
+        </div>
+        <div class="email-list m-t-15">
+            @foreach (var item in Model)
+            {
+                count++;
+                <div class="container">
+                    <div class="row">
+                        <a href="/AdminContact/SentBoxMessageDetails/@item.SentMessageID"  class="row" style="width:682.09px">
+                            <div class="col-1 text-truncate">
+                                <span class="font-weight-bold">@count</span>
+                                @*<input type="checkbox" id="chk2">
+                                    <label class="toggle" for="chk2"></label>
+                                    <span class="star-toggle ti-star"></span>*@
+                            </div>
+                            <div class="col-3 text-truncate">
+                                <span class="text-dark font-weight-bold">Receiver:</span> @item.SentMessageReceiverMail
+                            </div>
+                            <div class="col-3 text-truncate">
+                                <span class="text-dark font-weight-bold">Subject:</span> @item.SentMessageSubject
+                            </div>
+                            <div class="col-3 text-truncate">
+                                @item.SentMessageContent
+                            </div>
+                            <div class="col-2 text-truncate">
+                                @(((DateTime)item.SentMessageDate).ToString("dd/MMM/yyyy"))
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @*<div class="message">
+                        <a href="email-read.html">
+                            <div class="col-mail col-mail-1">
+                                <div class="email-checkbox">
+                                    <input type="checkbox" id="chk2">
+                                    <label class="toggle" for="chk2"></label>
+                                </div><span class="star-toggle ti-star"></span>
+                            </div>
+                            <div class="col-mail col-mail-2">
+                                <div class="subject"><b>Subject: @item.SentMessageSubject</b>@item.SentMessageContent.Substring(0, 20) ...</div>
+                                <div class="date">@(((DateTime)item.SentMessageDate).ToString("dd/MMM/yyyy"))</div>
+                            </div>
+                        </a>
+                    </div>*@
+            }
+            @*<div class="message unread">
+                    <a href="email-read.html">
+                        <div class="col-mail col-mail-1">
+                            <div class="email-checkbox">
+                                <input type="checkbox" id="chk20">
+                                <label class="toggle" for="chk20"></label>
+                            </div><span class="star-toggle ti-star"></span>
+                        </div>
+                        <div class="col-mail col-mail-2">
+                            <div class="subject">Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of</div>
+                            <div class="date">11:49 am</div>
+                        </div>
+                    </a>
+                </div>*@
+        </div>
+        <!-- panel -->
+        <div class="row">
+            <div class="col-7">
+                <div class="text-left">1 - 20 of 568</div>
+            </div>
+            <div class="col-5">
+                <div class="btn-group float-right">
+                    <button class="btn btn-gradient" type="button">
+                        <i class="fa fa-angle-left"></i>
+                    </button>
+                    <button class="btn btn-dark" type="button">
+                        <i class="fa fa-angle-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
