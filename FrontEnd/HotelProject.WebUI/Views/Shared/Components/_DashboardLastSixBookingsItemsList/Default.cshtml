@@ -1,0 +1,71 @@
+﻿@*_DashboardLastSixBookingsItemsList Default*@
+
+@model List<ResultLastSixBookingsItemsListDto>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>                                    
+                                    <th><i class="fa-solid fa-clock"></i></th>
+                                    <th>Status</th>
+                                    <th>Check-In</th>
+                                    <th>Check-Out</th>
+                                    <th>Special Request</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.BookingFullName</td>                                       
+                                        <td>
+                                            @if (item.BookingStatus == "Approved!")
+                                            {
+                                                <div>
+                                                    <div class="progress" style="height: 6px">
+                                                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else if (item.BookingStatus == "Delaying!!")
+                                            {
+                                                <div>
+                                                    <div class="progress" style="height: 6px">
+                                                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else if (item.BookingStatus == "Cancelled!")
+                                            {
+                                                <div>
+                                                    <div class="progress" style="height: 6px">
+                                                        <div class="progress-bar bg-danger" style="width: 100%"></div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        </td>
+                                        <td>@item.BookingStatus</td>
+                                        <td>@(((DateTime)item.BookingCheckIn).ToString("dd/MM/yyyy"))</td>
+                                        <td>@(((DateTime)item.BookingCheckOut).ToString("dd/MM/yyyy"))</td>
+                                        <td>
+                                            @item.BookingSpecialRequest
+                                            
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

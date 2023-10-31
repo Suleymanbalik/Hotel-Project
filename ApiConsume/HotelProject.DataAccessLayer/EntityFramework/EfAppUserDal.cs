@@ -17,6 +17,14 @@ namespace HotelProject.DataAccessLayer.EntityFramework
         {
         }
 
+        //This part provide the number of customer
+        // bu kısım bize müşteri sayısını verir.
+        public int AppUserCustomerCount()
+        {
+            var context = new Context();
+            return context.Users.Count();
+        }
+
         public List<AppUser> UserListWithWorkLocation()
         {
             var context = new Context();

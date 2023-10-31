@@ -17,5 +17,20 @@ namespace HotelProject.DataAccessLayer.EntityFramework
 
         }
 
+        public List<Staff> GetLastFourStaffsList()
+        {
+            using var context = new Context();
+            //var values = context.Staffs.Skip(Math.Max(0, context.Staffs.Count()-4)).ToList();
+            var values = context.Staffs.OrderByDescending(m => m.StaffID).Take(4).ToList();
+            return values;
+        }
+
+        public int GetStaffCount()
+        {
+            using var context  = new Context();
+
+            var value = context.Staffs.Count();
+            return value;
+        }
     }
 }

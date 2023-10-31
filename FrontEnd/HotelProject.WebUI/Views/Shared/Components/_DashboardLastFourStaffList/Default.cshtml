@@ -1,0 +1,22 @@
+﻿@*_DashboardLastFourStaffList Default*@
+
+
+@model List<ResultLastFourStaffListDto>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="@item.StaffSocialMedia1" class="rounded-circle" height="75" width="75" alt="">
+                        <h5 class="mt-3 mb-1">@item.StaffFullName</h5>
+                        <p class="m-0">@item.StaffTitle</p>
+                        <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

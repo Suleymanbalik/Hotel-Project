@@ -11,6 +11,6 @@ namespace HotelProject.DataAccessLayer.Abstract
     public interface IRoomDal : IGenericDal<Room>
     {
 
-
+        int GetRoomCount();
     }
 }

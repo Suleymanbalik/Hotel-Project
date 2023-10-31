@@ -17,6 +17,13 @@ namespace HotelProject.BusinessLayer.Concrete
         {
             _appUserDal = appUserDal;
         }
+
+        // This part for the customer count which in DashboardWidgetPartial
+        public int TAppUserCustomerCount()
+        {
+            return _appUserDal.AppUserCustomerCount();
+        }
+
         public void TDelete(AppUser t)
         {
             throw new NotImplementedException();

@@ -38,9 +38,21 @@ namespace HotelProject.BusinessLayer.Concrete
             _bookingDal.Delete(t);
         }
 
+        // This Part gets Number of Bookings for DashboardidgetPartial
+        public int TGetBookingCount()
+        {
+            return _bookingDal.GetBookingCount();
+        }
+
         public Booking TGetByID(int id)
         {
             return _bookingDal.GetByID(id);
+        }
+
+        // This part brings Last Six Bookings Items
+        public List<Booking> TGetLastSixBookingItemsList()
+        {
+            return _bookingDal.GetLastSixBookingItemsList();
         }
 
         public List<Booking> TGetList()

@@ -10,5 +10,9 @@ namespace HotelProject.BusinessLayer.Abstract
     public interface IAppUserService: IGenericService<AppUser>
     {
         List<AppUser> TUserListWithWorkLocation();
+
+        // This part for te number of Customer which on DashboardWidgetpartial
+        //Bu kısım bize idgetlerdeki müşteri sayısını getirir.
+        int TAppUserCustomerCount();
     }
 }

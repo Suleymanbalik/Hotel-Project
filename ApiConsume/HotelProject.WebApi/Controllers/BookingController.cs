@@ -77,5 +77,12 @@ namespace HotelProject.WebApi.Controllers
             _bookingService.TBookingStatusChangeDelay(id);
             return Ok();
         }
+
+        [HttpGet("GetLastSixBookingItemsList")]
+        public IActionResult GetLastSixBookingItemsList()
+        {
+            var values = _bookingService.TGetLastSixBookingItemsList();
+            return Ok(values);
+        }
     }
 }
