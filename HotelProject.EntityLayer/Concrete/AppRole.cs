@@ -9,5 +9,6 @@ namespace HotelProject.EntityLayer.Concrete
 {
     public class AppRole :IdentityRole<int>
     {
+        
     }
 }
