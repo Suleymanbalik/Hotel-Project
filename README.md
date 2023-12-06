@@ -5,7 +5,7 @@
 * AspNet Core ile Api Gelistirmek
 * Api'lerin Nasil Consume Edildigini Ogrenmek
 * Rapid Api Yapisini ve Consume Edilme Yöntemini Ogrenmek
-## Proje için kullanilan yaklasimlar ve teknolojiler
+## Proje icin kullanilan yaklasimlar ve teknolojiler
 * AspNET Core 6.0
 * AspNET Core Api
 * AspNET Identity
@@ -15,8 +15,8 @@
 * Repository Design Pattern
 * Json Web Token
 * MSSQL
-## Tasarım Kısmı;  
+## Tasarim Kismi;  
 * CSS ve BootStrap Responsive Yapisi iceren 2 Adet Kullanici ve Admin Temalari Kullanildi. 
 
-**Açıklama**
+**Aciklama**
 *Burada Kullanilan Teknoloji ve Yaklasimlar ogrenmek amacıyla projenin belli kisimlarında kullanildi. Ornegin, Projenin bir kisminda View Modeller kullanildi, diger bir kisminda Dto kullanildi. Diger bir ornek vermek gerekirse Fluent Validatin 1-2 tabloda tek kullanildi. Api'leri calısmasini dogrulamak icin Hem Swagger hem de Postman kullanildi. Kisacasi temelde bu kurs ogrenmek amacli belirli tekonojileri deneyip calisabildiği deneyimlemektir. Kurs veren kişi : Murat Yucedag(Udemy)
